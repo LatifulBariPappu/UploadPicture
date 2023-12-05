@@ -13,12 +13,13 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
 
     private final int GALLERY_REQ_CODE=1000;
+    ImageView imgGallery;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imgGallery=findViewById(R.id.imgGallery);
+        imgGallery=findViewById(R.id.imgGallery);
         Button btnGallery=findViewById(R.id.btnGallery);
         btnGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==RESULT_OK){
             if(requestCode==GALLERY_REQ_CODE){
-
+                imgGallery.setImageURI(data.getData());
             }
         }
     }
